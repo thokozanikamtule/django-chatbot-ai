@@ -9,7 +9,7 @@ from .models import Chat
 
 from django.utils import timezone
 
-openai_api_key = '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'
+openai_api_key = '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'
 openai.api_key = openai_api_key
 
 
@@ -31,7 +31,7 @@ def ask_openai(message):
     
 # Create your views here.
 def chatbot(request):
-	chats = Chat.objects.filter(user=request.user)
+	chats = Chat.objects.filter(user=request.user.id)
 
 	if request.method =='POST':
 		message = request.POST.get('message')
